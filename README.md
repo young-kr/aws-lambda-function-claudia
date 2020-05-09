@@ -12,9 +12,9 @@ You have to install node modules with optional package.
 ex) $ npm i -O moment
 
 4. Now create app.js and write code below.
-	const moment = require('moment');
-
-	exports.handler = async (event, context) => {
+  const moment = require('moment');
+  
+  exports.handler = async (event, context) => {
 		try {
 			return {code: "200", message: "Success - " + moment().format()};
 		} catch(error) {
