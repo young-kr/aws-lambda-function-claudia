@@ -12,16 +12,15 @@ You have to install node modules with optional package.
 ex) $ npm i -O moment
 
 4. Now create app.js and write code below.
-  
-  const moment = require('moment');
-  
-  exports.handler = async (event, context) => {
-    try {
-      return {code: "200", message: "Success - " + moment().format()};
-    } catch(error) {
-      return {code: "400", message: "Error"};
-    }
-  };
+	const moment = require('moment');
+
+	exports.handler = async (event, context) => {
+		try {
+			return {code: "200", message: "Success - " + moment().format()};
+		} catch(error) {
+			return {code: "400", message: "Error"};
+		}
+	};
 
 5. Install ClaudiaJS
 ex) $ npm i -g claudiajs
@@ -31,13 +30,13 @@ ex) $ claudia generate-serverless-express-proxy --express-module app
 
 7. Set up AWS credential
 ex) cd ~ && mkdir .aws && cd .aws && vi credentials
-  [default]
-  aws_access_key_id = ENTER_YOUR_PRIMARY_ACCESS_KEY_ID
-  aws_secret_access_key = ENTER_YOUR_PRIMARY_SECRET_ACCESS_KEY
+	[default]
+	aws_access_key_id = ENTER_YOUR_PRIMARY_ACCESS_KEY_ID
+	aws_secret_access_key = ENTER_YOUR_PRIMARY_SECRET_ACCESS_KEY
 
-  [young]
-  aws_access_key_id = ENTER_YOUR_SECONDARY_ACCESS_KEY_ID
-  aws_secret_access_key = ENTER_YOUR_SECONDARY_SECRET_ACCESS_KEY
+	[young]
+	aws_access_key_id = ENTER_YOUR_SECONDARY_ACCESS_KEY_ID
+	aws_secret_access_key = ENTER_YOUR_SECONDARY_SECRET_ACCESS_KEY
 
 8. Deploy this Express app with AWS API Gateway and AWS Lambda Function. ## Excludes optional packages.
 ex) $ claudia create --handler lambda.handler --deploy-proxy-api --region ap-northeast-2 --profile young --no-optional-dependencies
